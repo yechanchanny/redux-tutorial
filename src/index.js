@@ -3,7 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {createStore} from "redux";
+import {combineReducers, createStore} from "redux";
+
+const productReducer = (state, action) => {
+    return state;
+};
+
+const userReducer = (state, action) => {
+  return state;
+};
+
+const allReducers = combineReducers({
+    product : productReducer,
+    user: userReducer
+});
 
 const reducer = () => {
     return 'State';
@@ -11,6 +24,12 @@ const reducer = () => {
 
 const store = createStore(reducer);
 console.log(store);
+console.log(store.getState());
+
+const  action  = {
+    type : 'changeState',
+    payload : 'New State'
+};
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
